@@ -126,7 +126,9 @@ for (
   index < starWarsCharacters.length;
   index++
 ) {
-  charactersNames[index] = starWarsCharacters[index].name;
+  const strWC = starWarsCharacters[index];
+  console.log(strWC);
+  charactersNames[index] = strWC.name;
 }
 
 console.log(charactersNames);
@@ -141,18 +143,22 @@ console.log(
 console.log("____SVOLGIMENTO ES.3______");
 
 const femaleCharacters = [];
-console.log(femaleCharacters.length);
+console.log(
+  "contenitore femaleCharacters",
+  femaleCharacters.length
+);
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  const character = starWarsCharacters[i];
 
-for (
-  let index = 0;
-  index < starWarsCharacters.length;
-  index++
-) {
-  femaleCharacters[index] =
-    starWarsCharacters[index].gender;
-  femaleCharacters;
+  if (character.gender === "female") {
+    const characterObj = {
+      name: character.name,
+      hair_color: character.hair_color,
+      eye_color: character.eye_color,
+    };
+    femaleCharacters.push(characterObj);
+  }
 }
-
 console.log(femaleCharacters);
 
 /* ESERCIZIO 4
@@ -179,25 +185,53 @@ console.log(eyeColor);
   Utilizza uno switch statement per inserire uno ad uno gli oggetti dei personaggi di "starWarsCharacters" negli array relativi al colore degli occhi precedentemente creati.
   Ogni personaggio dovrà finire nell'array corrispondente al suo colore degli occhi (al valore della sua proprietà "eye_color").
 */
-switch (eyeColor) {
-  case (starWarsCharacters.eyeColor = eyeColor):
-    break;
-  case (starWarsCharacters.name = eyeColor):
-    break;
-  case (starWarsCharacters.height = eyeColor):
-    break;
-  case (starWarsCharacters.mass = eyeColor):
-    break;
-  case (starWarsCharacters.hair_color = eyeColor):
-    break;
-  default:
-    break;
-}
+console.log(
+  "ESERCIZIO 5 Utilizza uno switch statement per inserire uno ad uno gli oggetti dei personaggi di (starWarsCharacters) negli array relativi al colore degli occhi precedentemente creati.Ogni personaggio dovrà finire nell'array corrispondente al suo colore degli occhi (al valore della sua proprietà eye_color)."
+);
+console.log("____SVOLGIMENTO ES.5______");
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  const eyeColorch = starWarsCharacters[i];
 
-console.log();
+  switch (eyeColorch.eye_color) {
+    case "blue":
+      eyeColor.blu.push(eyeColorch);
+      break;
+    case "yellow":
+      eyeColor.yellow.push(eyeColorch);
+      break;
+    case "red":
+      eyeColor.red.push(eyeColorch);
+      break;
+    case "brown":
+      eyeColor.brown.push(eyeColorch);
+      break;
+    case "blue-gray":
+      eyeColor.blu_gray.push(eyeColorch);
+      break;
+    default:
+      break;
+  }
+}
+console.log(eyeColor);
+
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio. Salvala in una variabile chiamata "crewMass".
 */
+console.log(
+  "ESERCIZIO 6 Usa un while loop per calcolare la massa totale dell'equipaggio. Salvala in una variabile chiamata (crewMass)."
+);
+console.log("____SVOLGIMENTO ES.6______");
+
+let index = 0;
+let crewMass = 0;
+
+while (index < starWarsCharacters.length) {
+  const character = starWarsCharacters[index];
+  crewMass = crewMass + parseInt(character.mass);
+  index++;
+}
+
+console.log(crewMass);
 
 /* ESERCIZIO 7
   Crea uno if/else statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi dell'array "starWarsCharacters".
